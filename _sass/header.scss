@@ -1,0 +1,178 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-family: $ui-font;
+  width: 100%;
+  height: 6rem;
+  z-index: 5;
+
+  @keyframes header-scroll {
+    100% {
+      height: 4rem;
+    }
+  }
+
+  animation-name: header-scroll;
+  @include header-scroll-animation;
+
+  #title-container {
+    padding: 0 3rem 0.5rem 0.5rem;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    height: calc(100% - 0.5rem);
+    text-transform: uppercase;
+    z-index: 8;
+
+    p {
+      margin: 0;
+    }
+
+    @keyframes header-title-scroll {
+      100% {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    animation-name: header-title-scroll;
+    @include header-scroll-animation;
+  }
+
+  #menu-container {
+    margin: 0;
+    padding: 0 0 0 1rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    gap: 1rem;
+    background-color: var(--primary-light-color);
+    color: var(--black-color);
+    height: 100%;
+
+    @keyframes header-menu-scroll {
+      100% {
+        gap: 1.2rem
+      }
+    }
+
+    animation-name: header-menu-scroll;
+    @include header-scroll-animation;
+
+    a {
+      position: relative;
+      text-decoration: none;
+      color: var(--black-color);
+      height: calc(100% - 0.5rem);
+      padding: 0 0.5rem 1rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: end;
+
+      @keyframes header-menu-a-scroll {
+        100% {
+          padding: 0 0 1.0rem 2.3rem;
+        }
+      }
+
+      animation-name: header-menu-a-scroll;
+      @include header-scroll-animation;
+
+      @media (hover: hover) {
+        &:hover {
+          p {
+            color: var(--primary-color);
+            text-decoration: underline;
+          }
+        }
+      }
+
+      span {
+        position: absolute;
+        left: 0;
+        bottom: 1.2rem;
+        font-size: 3rem;
+        color: var(--primary-semi-light-color);
+        transition: font-size 0.25s ease-in-out, opacity 0.25s ease-in-out;
+
+        @keyframes header-menu-icon-scroll {
+          100% {
+            bottom: 0.8rem;
+            font-size: 2.0rem;
+            color: var(--primary-dark-color);
+          }
+        }
+
+        animation-name: header-menu-icon-scroll;
+        @include header-scroll-animation;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 900;
+        line-height: 1.5rem;
+        text-transform: capitalize;
+        z-index: 10;
+        color: var(--primary-dark-color);
+        transition: color 0.25s ease-in-out, text-decoration 0.25s ease-in-out;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    height: 4rem;
+
+    #title-container {
+      width: 100%;
+      padding: 0;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #menu-container {
+      display: none;
+    }
+
+    @keyframes mobile-header-scroll {
+      100% {
+        height: 3rem;
+      }
+    }
+
+    animation-name: mobile-header-scroll;
+    @include header-scroll-animation;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  header {
+    height: 3rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  header {
+    #title-container {
+      padding: 0 3rem 0.5rem calc(50vw - 30rem);
+    }
+  }
+}

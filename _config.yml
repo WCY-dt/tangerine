@@ -1,0 +1,93 @@
+############# Basic Settings #############
+# site description, used in meta tags
+description: A blog using Tangerine theme, powered by Jekyll.
+# site keywords, used in meta tags
+keywords:
+  - blog
+  - jekyll
+  - tangerine
+  - theme
+  - jekyll-theme
+# author information
+author:
+  name: Tangerine
+  link: https://github.com/WCY-dt/tangerine
+# display powered by jekyll in footer
+powered_by: false
+# the subpath of your site
+baseurl: /
+# the base hostname & protocol for your site
+url: https://tangerine.ch3nyang.top
+# OPTIONAL settings: delete the following line if you don't need
+# https://giscus.app/
+giscus:
+  data-repo: WCY-dt/tangerine
+  data-repo-id: R_kgDOMcELBQ
+  data-category-id: DIC_kwDOMcELBc4ChP42
+# google_analytics: G-XXXXXXXXXX
+# baidu_site_verification: codeva-xxxxxxxxxx
+
+############# Theme Settings #############
+# icons are from https://fonts.google.com/icons
+navy:
+  - title: home
+    url: /
+    icon: home
+  - title: demo
+    url: https://blog.ch3nyang.top
+    icon: note_stack
+  - title: about
+    url: https://ch3nyang.top
+    icon: person
+  - title: more
+    url: https://ch3nyang.top/#project
+    icon: hive
+  - title: rss
+    url: feed.xml
+    icon: rss_feed
+
+share:
+  - twitter
+  - facebook
+# - tiktok
+# - instagram
+# - linkedin
+  - reddit
+# - pinterest
+# - telegram
+# - whatsapp
+# - line
+# - discord
+# - snapchat
+  - weibo
+# - qq
+  - wechat
+# - email
+
+############# Other Settings #############
+# Please do not modify the following settings unless you know what you are doing.
+permalink: /post/:title/
+theme_config:
+  date_format: "%Y-%m"
+markdown: kramdown
+highlighter: rouge # Supported language: https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
+kramdown:
+  input: GFM
+jekyll-archives:
+  enabled: [categories, tags, year]
+  layouts: archive
+  permalinks:
+    tag: /tag/:name/
+    category: /category/:name/
+    year: /year/:year/
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-archives
+  - jekyll-loading-lazy
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"
+exclude:
+  - LICENSE.txt
+  - README.md

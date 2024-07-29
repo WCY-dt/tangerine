@@ -1,0 +1,170 @@
+---
+layout: compress
+---
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="keywords" content="{{ site.keywords | join: ', ' }}">
+    <meta name="author" content="{{ site.author.name }}">
+    <meta name="robots" content="index, follow">
+    <meta name="application-name" content="{{ site.author.name }}'s Blog">
+    <meta name="msapplication-TileColor" content="#ff4000">
+
+    <meta property="og:description" content="{{ site.description }}">
+    <!--
+      <meta property="og:image" content="./assets/img/ogimage.png">
+      <meta name="twitter:card" content="./assets/img/twittercard.png">
+    -->
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    >
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <meta name="baseurl" content="{{ site.baseurl }}">
+
+    <title>
+      {%- if page.title -%}
+        {%- if page.layout == 'post' -%}
+          {{ site.author.name | append: "'s blog" | escape }} | {{ page.title | escape }}
+        {%- else -%}
+          {{ page.title | escape }}
+        {%- endif -%}
+      {%- else -%}
+        {{ site.author.name | append: "'s blog" | escape }}
+      {%- endif -%}
+    </title>
+    <meta
+      property="og:title"
+      content="
+        {%- if page.title -%}
+          {%- if page.layout == 'post' -%}
+            {{ site.author.name | append: "'s blog" | escape }} | {{ page.title | escape }}
+          {%- else -%}
+            {{ page.title | escape }}
+          {%- endif -%}
+        {%- else -%}
+          {{ site.author.name | append: "'s blog" | escape }}
+        {%- endif -%}
+      "
+    >
+
+    {%- feed_meta -%}
+
+    <!-- Baidu siteverify -->
+    {%- if site.baidu_site_verification -%}
+      <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}">
+    {%- endif -%}
+
+    <!-- Google Analytics -->
+    {%- if site.google_analytics -%}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+      </script>
+    {%- endif -%}
+
+    <!-- Font Awesome -->
+    {%- if page.layout == 'post' -%}
+      <link
+        rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+      >
+      <noscript>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        >
+      </noscript>
+    {%- endif -%}
+
+    <!-- 主样式表 -->
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/main.css' | relative_url }}"
+    >
+
+    <!-- Giscus 样式表 -->
+    {% if page.layout == 'post' %}
+      <link
+        rel="preload"
+        href="{{ '/assets/css/giscus_light.css' | relative_url }}"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+      >
+      <link
+        rel="preload"
+        href="{{ '/assets/css/giscus_dark.css' | relative_url }}"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+      >
+      <noscript>
+        <link
+          rel="stylesheet"
+          href="{{ '/assets/css/giscus_light.css' | relative_url }}"
+        >
+        <link
+          rel="stylesheet"
+          href="{{ '/assets/css/giscus_dark.css' | relative_url }}"
+        >
+      </noscript>
+    {% endif %}
+  </head>
+
+  <body color_theme="{{ site.theme_config.color_theme | default: 'light' }}">
+    <header class="no-select">
+      {%- include header.html -%}
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer class="no-select">
+      {%- include footer.html -%}
+    </footer>
+
+    {%- include sidebar.html -%}
+
+    <!-- 代码复制 -->
+    {% if page.layout == 'post' %}
+      <script src="{{ '/assets/js/copy_code.js' | relative_url }}"></script>
+    {% endif %}
+
+    <!-- 图标加载优化 -->
+    <script src="{{ '/assets/js/optimize.js' | relative_url }}"></script>
+
+    <!-- 数学公式 -->
+    {% if page.mathjax %}
+      <script
+        async
+        id="MathJax-script"
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+      ></script>
+    {% endif %}
+
+    <!-- mermaid.js -->
+    {% if page.mermaid %}
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      <script async>
+        document.addEventListener('DOMContentLoaded', function () {
+          mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+          });
+          window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+        });
+      </script>
+    {% endif %}
+  </body>
+</html>

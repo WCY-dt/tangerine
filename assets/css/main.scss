@@ -1,0 +1,23 @@
+---
+---
+
+@import 'global';
+@import 'header';
+@import 'pagination';
+@import 'footer';
+@import 'post';
+@import 'series';
+@import 'copyright';
+@import 'relate';
+@import 'comment';
+@import 'share';
+@import 'archive';
+@import 'sidebar';
+@import 'toc';
+@import 'search';
+[data-theme='light'] {
+  @import 'syntax_light';
+}
+[data-theme='dark'] {
+  @import 'syntax_dark';
+}

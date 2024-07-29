@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<hgroup id="archive-info-container" class="no-select">
+  <h1 id="archive-type">
+    {{ page.type }}
+  </h1>
+  <h1 id="archive-title">
+    {% if page.date %}
+      {{ page.date | date: '%Y' }}
+    {% else %}
+      {{ page.title }}
+    {% endif %}
+  </h1>
+</hgroup>
+
+{% assign posts = page.posts %}
+{% include pagination.html %}

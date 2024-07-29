@@ -1,0 +1,62 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  z-index: 10;
+
+  #footer-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    background-color: var(--primary-light-color);
+    color: var(--primary-dark-color);
+    font-family: $ui-font;
+    font-weight: 900;
+    padding: 1.5rem 0 1rem 0;
+
+    @keyframes footer-scroll {
+      100% {
+        padding: 0.5rem 0 0.5rem 0;
+      }
+    }
+
+    animation-name: footer-scroll;
+    @include header-scroll-animation;
+
+    p {
+      margin: 0;
+      text-align: center;
+
+      a {
+        text-decoration: underline;
+        color: var(--primary-dark-color);
+        transition: color 0.25s ease-in-out;
+
+        @media (hover: hover) {
+          &:hover {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  footer {
+    #footer-container {
+      @keyframes footer-scroll {
+        100% {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
