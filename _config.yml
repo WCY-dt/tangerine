@@ -1,4 +1,6 @@
 ############# Basic Settings #############
+# site title
+title: Tangerine's Blog
 # site description, used in meta tags
 description: A blog using Tangerine theme, powered by Jekyll.
 # site keywords, used in meta tags
@@ -12,6 +14,11 @@ keywords:
 author:
   name: Tangerine
   link: https://github.com/WCY-dt/tangerine
+  email: mail@ch3nyang.top
+# site language
+lang: zh-CN
+# site timezone
+timezone: Asia/Shanghai
 # display powered by jekyll in footer
 powered_by: false
 # the subpath of your site
@@ -25,44 +32,38 @@ giscus:
   data-repo-id: R_kgDOMcELBQ
   data-category-id: DIC_kwDOMcELBc4ChP42
 # google_analytics: G-XXXXXXXXXX
+# umami: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 # baidu_site_verification: codeva-xxxxxxxxxx
 
 ############# Theme Settings #############
+# color theme: light or dark
+color_theme: light
+
 # icons are from https://fonts.google.com/icons
 navy:
-  - title: home
+  - title: post
     url: /
-    icon: home
+    icon: collections_bookmark
   - title: demo
     url: https://blog.ch3nyang.top
     icon: note_stack
-  - title: about
-    url: https://ch3nyang.top
-    icon: person
-  - title: more
-    url: https://ch3nyang.top/#project
-    icon: hive
+  - title: category
+    url: /category/
+    icon: category
+  - title: tag
+    url: /tag/
+    icon: local_offer
   - title: rss
     url: feed.xml
     icon: rss_feed
 
 share:
+  - hackernews
   - twitter
   - facebook
-# - tiktok
-# - instagram
-# - linkedin
   - reddit
-# - pinterest
-# - telegram
-# - whatsapp
-# - line
-# - discord
-# - snapchat
-  - weibo
-# - qq
-  - wechat
-# - email
+  - telegram
+# - weibo
 
 ############# Other Settings #############
 # Please do not modify the following settings unless you know what you are doing.
@@ -81,7 +82,6 @@ jekyll-archives:
     category: /category/:name/
     year: /year/:year/
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-archives
   - jekyll-loading-lazy
