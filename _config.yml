@@ -37,7 +37,7 @@ giscus:
 
 ############# Theme Settings #############
 # color theme: light or dark
-color_theme: light
+color_theme: dark
 
 # icons are from https://fonts.google.com/icons
 navy:
@@ -76,13 +76,12 @@ kramdown:
   input: GFM
 jekyll-archives:
   enabled: [categories, tags, year]
-  layouts: archive
+  layout: archive
   permalinks:
     tag: /tag/:name/
     category: /category/:name/
     year: /year/:year/
 plugins:
-  - jekyll-sitemap
   - jekyll-archives
   - jekyll-loading-lazy
 webrick:
@@ -91,3 +90,4 @@ webrick:
 exclude:
   - LICENSE.txt
   - README.md
+  - README_zh-CN.md
