@@ -4,11 +4,12 @@ title:  "Lorem ipsum"
 date:   2000-01-01 00:21:00 +0800
 categories: theme
 tags: tangerine jekyll
+summary: "This is a sample post with lorem ipsum text to demonstrate the Tangerine theme's layout and styling capabilities."
 series: Introduction
 series_index: 3
 comments: 1
 mathjax: true
-copyrights: 原创
+copyrights: origin
 ---
 
 ## Heading 2

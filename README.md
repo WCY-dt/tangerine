@@ -1,12 +1,10 @@
 # Tangerine
 
-[简体中文](./README_zh-CN.md) | English
+English | [中文](./README_zh-CN.md)
 
-![Hero Image](https://heroimg.glitch.me/hero?title=Tangerine&subTitle=A%20Jekyll%20theme%20designed%20for%20personal%20blogs&style=layered-peaks&subFontSize=32)
+Welcome to Tangerine! This is a Jekyll theme designed specifically for personal blogs.
 
-Welcome to Tangerine! This is a Jekyll theme designed for personal blogs.
-
-## Site address
+## Website
 
 - [GitHub](https://github.com/WCY-dt/tangerine)
 - [Preview](https://tangerine.ch3nyang.top/)
@@ -14,77 +12,73 @@ Welcome to Tangerine! This is a Jekyll theme designed for personal blogs.
 
 ## Local Development
 
-You are free to use the theme of this blog for your blog.
+You are free to use this blog theme for your own blog.
 
-It is recommended to use the Visual Studio Code editor and install the plugins [`Shopify Liquid`](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode), [`markdownlint`](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) and [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for a better development experience.
+### Installation and Setup
 
-Before building, install Ruby and Jekyll, and then install the dependencies:
+Before building, please install [Ruby](https://rubyinstaller.org/downloads/) (≥ 3.4.0) and [Jekyll](https://jekyllrb.com/docs/installation/), then install dependencies:
 
 ```bash
 bundle install
 ```
 
-Start the local service:
+Start local server:
 
 ```bash
 jekyll serve
 ```
 
-Then use [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) directly to preview the live updates.
+Then use [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to preview with live updates.
 
-Most of the settings are in the [`_config.yml`](./_config.yml) file, you can modify it according to your needs.
+Most settings are in the [`_config.yml`](./_config.yml) file, which you can modify according to your needs.
 
-Blog posts are stored in the [`_posts`](./_posts) folder, and the naming format is `YYYY-MM-DD-title.md`. The file header of a blog post should contain the following information:
+### Post Editing
+
+Blog posts are stored in the [`_posts`](./_posts) folder, with naming format `YYYY-MM-DD-title.md`. Blog post headers should contain the following information:
 
 ```yaml
-layout: post
-title: "Genshin Impact Gameplay Guide"
-date: 2000-01-01 00:00:00 +0800
-categories: Game // There can be only one category
-tags: RPG Genshin // There can be multiple tags, separated by spaces
-comments: true // If set to true, the article will display the comments area; otherwise, it will not be displayed
-mathjax: true // Omittable, default is false. If set to true, mathematical formula support will be enabled
-mermaid: false // Omittable, default is false. If set to true, flowchart support will be enabled
-copyrights: Original // If set to Original, the copyright statement will be displayed at the end; otherwise, it will not be displayed
-draft: true // Omittable, default is false. If set to true, the post will not be displayed on the homepage
+layout:     post
+title:      "Genshin Impact Gameplay Guide"
+date:       2000-01-01 00:00:00 +0800
+categories: Gaming // Only one category allowed
+tags:       Open-World RPG Genshin-Impact // Multiple tags separated by spaces
+summary:    "This article is a Genshin Impact gameplay guide, introducing basic gameplay, character development, resource acquisition, and more to help new players get started quickly." // Optional
+comments:   false // If set to true, comments section will be displayed; otherwise hidden
+mathjax:    true // Optional, defaults to false. If set to true, enables math formula support
+mermaid:    true // Optional, defaults to false. If set to true, enables flowchart support
+copyrights: Original // If set to "Original", copyright notice will be displayed at the end; otherwise hidden
+draft:      true // Optional, defaults to false. If set to true, article won't appear on homepage
+archived:   true // Optional, defaults to false. If set to true, article will be marked as archived
 ```
 
-You may also need to modify the workflow files, website icon [`favicon.svg`](./favicon.svg) and [`CNAME`](./CNAME) in the [`.github`](./.github) folder to suit your needs.
+You may also need to modify workflow files in the [`.github`](./.github) folder, website icon [`favicon.svg`](./favicon.svg), and [`CNAME`](./CNAME) to suit your needs.
 
-The images in the post are stored in the [`assets/post/images`](./assets/post/images) folder. If you need to reference the image, please use a relative path, for example:
+Images in articles are stored in the [`assets/post/images`](./assets/post/images) folder. When referencing images, please use relative paths, for example:
 
 ```markdown
-![Image description](/assets/post/images/image file name.webp)
+![Image description](/assets/post/images/image-filename.webp)
 ```
 
-The [`assets/post`](./assets/post) folder provides a script that can help convert images to webp format. If you need to use it, please install the [webp](https://developers.google.com/speed/webp) tool first.
+The [`scripts`](./scripts) folder provides scripts to help convert images to webp format and automatically identify and clean unused images. If you need to run scripts, please install the [webp](https://developers.google.com/speed/webp) tool first.
 
-You can use the test article in the [`_test`](./_test) folder for testing.
+You can use test articles in the [`_test`](./_test) folder for testing.
 
-## Development route
+### Plugin System
 
-- [x] Personalized theme
-- [x] Article classification
-- [x] Article tag
-- [x] Article series
-- [x] Code highlighting
-- [x] Code copying
-- [x] RSS subscription
-- [x] Responsive design
-- [x] SEO optimization
-- [x] Copyright statement
-- [x] Performance optimization
-- [x] Article search
-- [x] Related article recommendation
-- [x] Comment system
-- [x] Article directory
-- [x] Article sharing
-- [x] Theme switching
-- [x] Formula support
-- [x] Flowchart support
-- [x] Accessibility
-- [ ] More features...
+See [Plugin Testing](./_test/2000-01-02-plugin-testing.md) for details.
 
-## Copyright statement
+## Features
 
-All of the code in this blog uses the [MIT](https://opensource.org/licenses/MIT) license agreement.
+| Basic Features | Content Organization | User Experience | Enhanced Features | Extension Plugins |
+|----------------|---------------------|------------------|-------------------|-------------------|
+| Custom Theme | Article Categories | Responsive Design | Code Highlighting | GitHub Plugin |
+| RSS Feed | Article Tags | Theme Switching | Code Copy | Image Layout Plugin |
+| Comment System | Article Series | Accessibility | Formula Support | iframe Plugin |
+| SEO Optimization | Table of Contents | Article Search | Flowchart Support | Result Preview Plugin |
+| Performance Optimization | Article Archive | Article Sharing | Content Folding | External Reference Plugin |
+|                | Draft System | Copyright Notice | Article Summary |                   |
+|                |             | Article Recommendations | Fullscreen Display |                   |
+
+## Copyright Notice
+
+This blog is licensed under [MIT](https://opensource.org/licenses/MIT).
